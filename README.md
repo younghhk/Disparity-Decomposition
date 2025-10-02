@@ -3,14 +3,14 @@
 ## Contents
 
 
-- [3.1 Peters–Belson Decomposition of the Proportion of Death](#petersbelson-decomposition-on-the-proportion-of-death-black-vs-white)
-- [3.2 Quantile-Based Decomposition (Lower-Tail BMI / Telomere)](#quantile-based-disparity-decomposition-lower-tail-bmi--telomere)
-- [3.3 Time-Dependent Disparity Decomposition](#time-dependent-disparity-decomposition--narrative-no-formulas)
+- [1. Peters–Belson Decomposition of the Proportion of Death](#petersbelson-decomposition-on-the-proportion-of-death-black-vs-white)
+- [2. Quantile-Based Decomposition (Lower-Tail BMI / Telomere)](#quantile-based-disparity-decomposition-lower-tail-bmi--telomere)
+- [3. Time-Dependent Disparity Decomposition](#time-dependent-disparity-decomposition--narrative-no-formulas)
 
 
 This topic introduces a practical framework to **quantify explained vs unexplained disparities** in breast cancer outcomes. We focus on **ER-positive** disease where Black–White mortality differences are well documented, and we show how to decompose the disparity overall.
 
-
+(#petersbelson-decomposition-on-the-proportion-of-death-black-vs-white)
 ### 1. Peters–Belson Decomposition of the Proportion of Death
 
 ### Motivation

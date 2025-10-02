@@ -1,14 +1,25 @@
 ## Cancer Disparity Decomposition Methods 
 
+## Contents
+
+
+- [3.1 Peters–Belson Decomposition of the Proportion of Death](#petersbelson-decomposition-on-the-proportion-of-death-black-vs-white)
+- [3.2 Quantile-Based Decomposition (Lower-Tail BMI / Telomere)](#quantile-based-disparity-decomposition-lower-tail-bmi--telomere)
+- [3.3 Time-Dependent Disparity Decomposition](#time-dependent-disparity-decomposition--narrative-no-formulas)
+
+
 This topic introduces a practical framework to **quantify explained vs unexplained disparities** in breast cancer outcomes. We focus on **ER-positive** disease where Black–White mortality differences are well documented, and we show how to decompose the disparity overall.
+
+
+### 1. Peters–Belson Decomposition of the Proportion of Death
 
 ### Motivation
 
 Among women with ER-positive breast cancer, **Black patients experience higher mortality than White patients**. A key question is: **how much of the mortality gap is explained by measured factors** (e.g., stage at diagnosis, access to care, adherence to endocrine therapy) and **how much remains unexplained** by those factors.
 
----
 
-### 1) Peters–Belson decomposition (explained vs unexplained)
+
+### Peters–Belson decomposition (explained vs unexplained)
 
 **Goal.** Partition an outcome gap between groups into:
 - an **explained** portion due to differences in covariate distributions, and
@@ -22,7 +33,7 @@ Among women with ER-positive breast cancer, **Black patients experience higher m
 
 This follows the same logic as the worked examples in the literature (see the PMC article you cited), but focuses explicitly on the **proportion (risk) of death**.
 
----
+
 
 #### Steps
 1) Fit a **risk model** for death in the **reference group** (commonly Whites):  
@@ -118,7 +129,7 @@ This paper details design-based estimation and inference for explained/unexplain
 
 
 
-
+---
 
 ### 2. Quantile-Based Disparity Decomposition (focus on **lower BMI**)
 

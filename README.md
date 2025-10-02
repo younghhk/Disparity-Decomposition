@@ -1,16 +1,9 @@
-## Cancer Disparity Decomposition Methods 
-
 ## Contents
+- [1. Peters–Belson Decomposition of the Proportion of Death](#dd-proportion)
+- [2. Quantile-Based Decomposition (Lower-Tail BMI / Telomere)](#dd-quantile)
+- [3. Time-Dependent Disparity Decomposition](#dd-time)
 
-
-- [1. Peters–Belson Decomposition of the Proportion of Death](#petersbelson-decomposition-on-the-proportion-of-death-black-vs-white)
-- [2. Quantile-Based Decomposition (Lower-Tail BMI / Telomere)](#quantile-based-disparity-decomposition-lower-tail-bmi--telomere)
-- [3. Time-Dependent Disparity Decomposition](#time-dependent-disparity-decomposition--narrative-no-formulas)
-
-
-This topic introduces a practical framework to **quantify explained vs unexplained disparities** in breast cancer outcomes. We focus on **ER-positive** disease where Black–White mortality differences are well documented, and we show how to decompose the disparity overall.
-
-(#petersbelson-decomposition-on-the-proportion-of-death-black-vs-white)
+<a id="dd-proportion"></a>
 ### 1. Peters–Belson Decomposition of the Proportion of Death
 
 ### Motivation
@@ -131,6 +124,7 @@ This paper details design-based estimation and inference for explained/unexplain
 
 ---
 
+<a id="dd-quantile"></a>
 ### 2. Quantile-Based Disparity Decomposition (focus on **lower BMI**)
 
 When the **outcome is continuous** and you care about the **lower tail** (e.g., “lower BMI” among White vs Black patients), use a **quantile-based Peters–Belson / Oaxaca–Blinder** decomposition. This uses **all data** (no subgroup fitting beyond race) and targets a chosen quantile level $\tau$ (e.g., $\tau=0.10$ or $0.25$).
@@ -225,7 +219,8 @@ list(QW_tau = QW_tau,
 
 
 ---
-### 3) Time-Dependent Disparity Decomposition 
+<a id="dd-time"></a>
+### 3. Time-Dependent Disparity Decomposition 
 
 **Goal:** Show how the **explained** and **unexplained** portions of a disparity change over time.  
 Example: fetal growth (e.g., estimated fetal weight or abdominal circumference) for **White vs Black** mothers at **30** and **35** weeks’ gestation.

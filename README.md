@@ -215,7 +215,7 @@ list(QW_tau = QW_tau,
      delta_unexpl_tau= delta_unex_tau,
      percent_explained = pct_expl_tau)
 ```
-> Hong, G., Graubard, B., Gastwirth, J., & Kim, S. *Quantile Regression Decomposition Analysis of Disparity Research Using Complex Survey Data: Application to Disparities in BMI and Telomere Length Between U.S. Minority and White Population Groups.* [PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC12456447/)
+> Hong, G., Graubard, B., Gastwirth, J., & Kim, M. (2024) *Quantile Regression Decomposition Analysis of Disparity Research Using Complex Survey Data: Application to Disparities in BMI and Telomere Length Between U.S. Minority and White Population Groups.* [PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC12456447/)
 
 
 ---
@@ -225,8 +225,8 @@ list(QW_tau = QW_tau,
 **Goal:** Show how the **explained** and **unexplained** portions of a disparity change over time.  
 Example: fetal growth (e.g., estimated fetal weight or abdominal circumference) for **White vs Black** mothers at **30** and **35** weeks’ gestation.
 
-> Lee, S., Kim, S., Kim, M., & Hong, G. *[Title]*. **Manuscript under revision.**  
-> 🏆 **This work earned Sang K. Lee the ASA Section on Statistics in Epidemiology Early Career Award (JSM 2024).**
+> Lee, S., Kim, S., Kim, M., & Hong, G. (2025) *Decomposition of Longitudinal Disparities: an Application to the Fetal Growth-Singletons Study*. [Biostatistics, in press]
+
 
 
 

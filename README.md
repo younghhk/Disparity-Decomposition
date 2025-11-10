@@ -1,7 +1,7 @@
 ## Contents
 - [1. Peters–Belson Decomposition of the Proportion of Death](#dd-proportion)
 - [2. Quantile-Based Decomposition (Lower-Tail BMI / Telomere)](#dd-quantile)
-- [3. Time-Dependent Disparity Decomposition](#dd-time)
+
 
 <a id="dd-proportion"></a>
 ### 1. Peters–Belson Decomposition of the Proportion of Death
@@ -218,16 +218,4 @@ list(QW_tau = QW_tau,
 > Hong, G., Graubard, B., Gastwirth, J., & Kim, M. (2024) *Quantile Regression Decomposition Analysis of Disparity Research Using Complex Survey Data: Application to Disparities in BMI and Telomere Length Between U.S. Minority and White Population Groups.* [PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC12456447/)
 
 
----
-<a id="dd-time"></a>
-### 3. Time-Dependent Disparity Decomposition 
 
-**Goal:** Show how the **explained** and **unexplained** portions of a disparity change over time.  
-Example: fetal growth (e.g., estimated fetal weight or abdominal circumference) for **White vs Black** mothers at **30** and **35** weeks’ gestation.
-
-> Lee, S., Kim, S., Kim, M., & Hong, G. (2025) *Decomposition of Longitudinal Disparities: an Application to the Fetal Growth-Singletons Study*. [Biostatistics, in press]
-
-
-
-
----

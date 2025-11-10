@@ -1,10 +1,7 @@
-## Contents
-- [1. Peters–Belson Decomposition of the Proportion of Death](#dd-proportion)
-- [2. Quantile-Based Decomposition (Lower-Tail BMI / Telomere)](#dd-quantile)
 
 
 <a id="dd-proportion"></a>
-### 1. Peters–Belson Decomposition of the Proportion of Death
+### Peters–Belson Decomposition of the Proportion of Death
 
 ### Motivation
 
@@ -120,102 +117,6 @@ percent_explained <- 100 * delta_explained / delta_total
 
 This paper details design-based estimation and inference for explained/unexplained components.
 
-
-
----
-
-<a id="dd-quantile"></a>
-### 2. Quantile-Based Disparity Decomposition (focus on **lower BMI**)
-
-When the **outcome is continuous** and you care about the **lower tail** (e.g., “lower BMI” among White vs Black patients), use a **quantile-based Peters–Belson / Oaxaca–Blinder** decomposition. This uses **all data** (no subgroup fitting beyond race) and targets a chosen quantile level $\tau$ (e.g., $\tau=0.10$ or $0.25$).
-
-
-Let $Y$ be BMI, $G\in\{\text{White},\text{Black}\}$, and $X$ covariates (e.g., stage, access, adherence).  
-For a quantile level $\tau\in(0,1)$, define the **marginal** BMI quantiles:
-- $Q_W(\tau)$ = $\tau$-quantile of BMI among Whites,
-- $Q_B(\tau)$ = $\tau$-quantile of BMI among Blacks.
-
-The **total disparity at the lower tail** is
-$\Delta_{\text{total}}(\tau)\;=\;Q_B(\tau)-Q_W(\tau).$
-
-### Steps
-
-- **1)  Reference-group quantile model**
-Fit a **quantile regression** in the **reference group** (commonly Whites) at the same $\tau$:
-$Q_{Y\mid X,G=\text{White}}(\tau)\;=\;q_\tau\\big(X;\hat\beta_W(\tau)\big).$
-
-- **2) Counterfactual lower-tail BMI for Blacks under White coefficients**
-
-  Apply the White model to the **Black covariate distribution** to get the **counterfactual** $\tau$-quantile for Blacks (as if the conditional BMI–covariate relationship were the same as Whites):
-
-$$
-Q_{B\mid W}(\tau)=Q_{\tau}\{\,q_{\tau}(X_{Bi};\hat\beta_W(\tau))\,\}_i
-$$
-
-- **3) Decomposition at the chosen lower-tail quantile**
-
-Split the lower-tail disparity into **explained** (covariates) and **unexplained** (differences in conditional relationships):
-
-
-$$\Delta_{\mathrm{total}}(\tau)=\Delta_{\mathrm{expl}}(\tau)+\Delta_{\mathrm{unexpl}}(\tau)$$
-
-
-
-with
-
-$$
-\Delta_{\mathrm{expl}}(\tau)=Q_{B\mid W}(\tau)-Q_W(\tau)
-$$
-
-$$
-\Delta_{\mathrm{unexpl}}(\tau)=Q_B(\tau)-Q_{B\mid W}(\tau)
-$$
-
-- **Percent explained:**  
-  $100\times\frac{\Delta_{\mathrm{expl}}(\tau)}{\Delta_{\mathrm{total}}(\tau)}$  (when $\Delta_{\mathrm{total}}(\tau)\neq 0$).
-
-### R sketch (lower-tail BMI at $\tau=0.25$)
-
-```r
-# Outcome: BMI (continuous)
-# Reference group: Whites
-# Comparison group: Blacks
-# Covariates: stage, access, adherence, x_d (replace as needed)
-
-library(quantreg)
-
-tau <- 0.25
-
-# 1) Fit quantile regression in Whites at tau
-fit_ref_tau <- rq(BMI ~ stage + access + adherence + x_d,
-                  tau = tau,
-                  data = subset(dat, race == "White"))
-
-# 2) Observed marginal quantiles (lower tail) in each group
-QW_tau <- quantile(subset(dat, race == "White")$BMI, probs = tau, na.rm = TRUE)
-QB_tau <- quantile(subset(dat, race == "Black")$BMI,  probs = tau, na.rm = TRUE)
-
-# 3) Counterfactual: predict conditional tau-quantiles for Blacks using White coefficients
-pred_B_tau <- predict(fit_ref_tau, newdata = subset(dat, race == "Black"))
-
-# Take the tau-quantile of those predictions (approximate marginal counterfactual)
-QB_givenW_tau <- quantile(pred_B_tau, probs = tau, na.rm = TRUE)
-
-# 4) Decomposition at the lower-tail quantile
-delta_total_tau <- as.numeric(QB_tau - QW_tau)
-delta_expl_tau  <- as.numeric(QB_givenW_tau - QW_tau)
-delta_unex_tau  <- as.numeric(QB_tau - QB_givenW_tau)
-pct_expl_tau    <- ifelse(delta_total_tau != 0, 100 * delta_expl_tau / delta_total_tau, NA)
-
-list(QW_tau = QW_tau,
-     QB_tau = QB_tau,
-     QB_givenW_tau = QB_givenW_tau,
-     delta_total_tau = delta_total_tau,
-     delta_expl_tau  = delta_expl_tau,
-     delta_unexpl_tau= delta_unex_tau,
-     percent_explained = pct_expl_tau)
-```
-> Hong, G., Graubard, B., Gastwirth, J., & Kim, M. (2024) *Quantile Regression Decomposition Analysis of Disparity Research Using Complex Survey Data: Application to Disparities in BMI and Telomere Length Between U.S. Minority and White Population Groups.* [PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC12456447/)
 
 
 

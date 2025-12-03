@@ -1,7 +1,4 @@
-> 🧬 **For additional cancer research software and tools**, visit  
-> [Cancer Research Software Repository](https://github.com/younghhk/NCI)
-
----
+[![Back to Hub](https://img.shields.io/badge/⬅️%20Back%20to%20Hub-2962FF?style=for-the-badge)](https://github.com/younghhk/NCI)
 
 <a id="dd-proportion"></a>
 ### Peters–Belson Decomposition of the Proportion of Death
